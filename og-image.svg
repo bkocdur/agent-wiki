@@ -1,22 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00c3ff" stop-opacity="0.08"/>
+      <stop offset="0%" stop-color="#00c3ff" stop-opacity="0.07"/>
       <stop offset="100%" stop-color="#0c0c0c" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
+  <!-- Background -->
   <rect width="1200" height="630" fill="#0c0c0c"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
   <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#1e1e1e" stroke-width="2"/>
 
-  <!-- Logo dot -->
-  <circle cx="600" cy="220" r="20" fill="#00c3ff"/>
-  <circle cx="600" cy="220" r="36" fill="#00c3ff" opacity="0.10"/>
+  <!-- Centered logo: dot at 50% x -->
+  <circle cx="600" cy="195" r="18" fill="#00c3ff"/>
+  <circle cx="600" cy="195" r="32" fill="#00c3ff" opacity="0.10"/>
 
-  <!-- Wordmark -->
-  <text x="600" y="320" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="64" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1">Agent Wiki</text>
+  <!-- "Agent Wiki" — centered via text-anchor -->
+  <text
+    x="600" y="310"
+    font-family="Arial,Helvetica,sans-serif"
+    font-size="80"
+    font-weight="700"
+    fill="#ffffff"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >Agent Wiki</text>
 
-  <!-- Tagline -->
-  <text x="600" y="390" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="400" fill="#555555" text-anchor="middle">Give your AI a memory of how your team works.</text>
+  <!-- Tagline — centered via text-anchor -->
+  <text
+    x="600" y="390"
+    font-family="Arial,Helvetica,sans-serif"
+    font-size="26"
+    font-weight="400"
+    fill="#555555"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >Give your AI a memory of how your team works.</text>
 </svg>

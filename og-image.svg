@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#00c3ff" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0c0c0c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dotglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00c3ff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#00c3ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0c0c0c"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="1198" height="628" rx="0" fill="none" stroke="#282828" stroke-width="2"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#topline)"/>
+  <defs>
+    <linearGradient id="topline" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0c0c0c"/>
+      <stop offset="35%" stop-color="#00c3ff"/>
+      <stop offset="65%" stop-color="#00c3ff"/>
+      <stop offset="100%" stop-color="#0c0c0c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logo row -->
+  <circle cx="468" cy="222" r="10" fill="#00c3ff"/>
+  <circle cx="468" cy="222" r="18" fill="#00c3ff" opacity="0.12"/>
+  <text x="490" y="231" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#f0f0f0" letter-spacing="0.5">Agent Wiki</text>
+
+  <!-- Badge -->
+  <rect x="530" y="252" width="142" height="26" rx="13" fill="rgba(0,195,255,0.12)" stroke="rgba(0,195,255,0.25)" stroke-width="1"/>
+  <circle cx="547" cy="265" r="4" fill="#00c3ff"/>
+  <text x="557" y="270" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#00c3ff" letter-spacing="1.5">FREE TEMPLATE</text>
+
+  <!-- Main headline -->
+  <text x="600" y="338" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1.5">Give your AI a memory</text>
+  <text x="600" y="408" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="700" fill="#00c3ff" text-anchor="middle" letter-spacing="-1.5">of how your team works.</text>
+
+  <!-- Sub text -->
+  <text x="600" y="464" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" fill="#888888" text-anchor="middle">One setup run. Full context. Every morning.</text>
+
+  <!-- Bottom pills -->
+  <rect x="272" y="504" width="108" height="34" rx="8" fill="#141414" stroke="#282828" stroke-width="1"/>
+  <text x="326" y="526" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#888" text-anchor="middle">Slack</text>
+
+  <rect x="394" y="504" width="108" height="34" rx="8" fill="#141414" stroke="#282828" stroke-width="1"/>
+  <text x="448" y="526" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#888" text-anchor="middle">Notion</text>
+
+  <rect x="516" y="504" width="168" height="34" rx="8" fill="#141414" stroke="#282828" stroke-width="1"/>
+  <text x="600" y="526" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#888" text-anchor="middle">Claude Code</text>
+
+  <rect x="698" y="504" width="140" height="34" rx="8" fill="#141414" stroke="#282828" stroke-width="1"/>
+  <text x="768" y="526" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#888" text-anchor="middle">Apple Notes</text>
+
+  <rect x="852" y="504" width="78" height="34" rx="8" fill="#141414" stroke="#282828" stroke-width="1"/>
+  <text x="891" y="526" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#888" text-anchor="middle">More</text>
+
+  <!-- GitHub badge bottom right -->
+  <text x="1160" y="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" fill="#555" text-anchor="end">github.com/bkocdur/agent-wiki-template</text>
+</svg>

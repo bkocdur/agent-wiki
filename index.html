@@ -3,13 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agent Wiki - Give your AI a memory of how your team works</title>
+  <title>Agent Wiki — Give Your AI a Memory of How Your Team Works</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Agent Wiki gives your AI a living memory of your team. One setup run reads your Slack, meetings and notes — then your AI loads full context before every task. Free open-source template." />
+  <meta name="author" content="Baris Kocdur" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0c0c0c" />
+  <link rel="canonical" href="https://agent-wiki-template.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agent-wiki-template.vercel.app/" />
+  <meta property="og:title" content="Agent Wiki — Give Your AI a Memory of How Your Team Works" />
+  <meta property="og:description" content="One setup run reads your Slack, meetings and notes. Your AI loads full team context before every task. Free open-source template." />
+  <meta property="og:image" content="https://agent-wiki-template.vercel.app/og-image.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Agent Wiki — Give your AI a memory of how your team works" />
+  <meta property="og:site_name" content="Agent Wiki" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Agent Wiki — Give Your AI a Memory of How Your Team Works" />
+  <meta name="twitter:description" content="One setup run reads your Slack, meetings and notes. Your AI loads full team context before every task. Free open-source template." />
+  <meta name="twitter:image" content="https://agent-wiki-template.vercel.app/og-image.webp" />
+  <meta name="twitter:image:alt" content="Agent Wiki — Give your AI a memory of how your team works" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.webp" />
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Agent Wiki",
+    "description": "A structured wiki template that gives your AI a living memory of how your team works. Open source, free, built for Claude Code and AI agents.",
+    "url": "https://agent-wiki-template.vercel.app/",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Baris Kocdur", "url": "https://github.com/bkocdur" },
+    "codeRepository": "https://github.com/bkocdur/agent-wiki-template",
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -302,6 +350,7 @@
   </style>
 </head>
 <body>
+<noscript><div style="font-family:sans-serif;padding:40px;text-align:center;color:#f0f0f0;background:#0c0c0c">Agent Wiki requires JavaScript. Please enable it in your browser settings.</div></noscript>
 
 <!-- NAV -->
 <nav>
@@ -315,10 +364,10 @@
     <a href="#quickstart">Quickstart</a>
   </div>
   <div class="nav-right">
-    <a class="btn-primary" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank">
+    <a class="btn-primary" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank" rel="noopener noreferrer">
       Ask Claude
     </a>
-    <a class="btn-ghost nav-github-btn" href="https://github.com/bkocdur/agent-wiki-template" target="_blank">
+    <a class="btn-ghost nav-github-btn" href="https://github.com/bkocdur/agent-wiki-template" target="_blank" rel="noopener noreferrer">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
@@ -337,10 +386,10 @@
     <p class="hero-sub dev-only">Clone this repo, configure your sources, run one bootstrap prompt with Claude Code. Your operational history becomes a YAML-structured wiki agents can ingest at Step 0 before pulling live data.</p>
 
     <div class="hero-ctas">
-      <a class="btn-primary large" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank">
+      <a class="btn-primary large" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank" rel="noopener noreferrer">
         Ask Claude to guide me
       </a>
-      <a class="btn-ghost large" href="https://github.com/bkocdur/agent-wiki-template" target="_blank">
+      <a class="btn-ghost large" href="https://github.com/bkocdur/agent-wiki-template" target="_blank" rel="noopener noreferrer">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
         View on GitHub
       </a>
@@ -368,7 +417,7 @@
 
     <div class="flow-pipeline">
       <div class="flow-step">
-        <div class="flow-icon" style="background:rgba(var(--accent-rgb),0.1)">💬</div>
+        <div class="flow-icon" style="background:rgba(var(--accent-rgb),0.1)" role="img" aria-label="Chat messages">💬</div>
         <div class="flow-step-label human-only">Your history</div>
         <div class="flow-step-label dev-only">Source data</div>
         <div class="flow-step-sub human-only">Slack, meetings, notes</div>
@@ -376,7 +425,7 @@
       </div>
       <div class="flow-arrow">&#8594;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:rgba(255,204,39,0.1)">&#9889;</div>
+        <div class="flow-icon" style="background:rgba(255,204,39,0.1)" role="img" aria-label="Lightning bolt"><div class="flow-icon" style="background:rgba(255,204,39,0.1)">&#9889;</div>#9889;</div>
         <div class="flow-step-label human-only">One setup run</div>
         <div class="flow-step-label dev-only">Bootstrap prompt</div>
         <div class="flow-step-sub human-only">AI reads and writes</div>
@@ -384,14 +433,14 @@
       </div>
       <div class="flow-arrow">&#8594;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:rgba(138,56,245,0.1)">&#128194;</div>
+        <div class="flow-icon" style="background:rgba(138,56,245,0.1)" role="img" aria-label="Folder"><div class="flow-icon" style="background:rgba(138,56,245,0.1)">&#128194;</div>#128194;</div>
         <div class="flow-step-label">Structured wiki</div>
         <div class="flow-step-sub human-only">Projects, people, decisions</div>
         <div class="flow-step-sub dev-only">YAML articles, backlinks</div>
       </div>
       <div class="flow-arrow">&#8594;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:rgba(187,255,51,0.1)">&#129302;</div>
+        <div class="flow-icon" style="background:rgba(187,255,51,0.1)" role="img" aria-label="Robot"><div class="flow-icon" style="background:rgba(187,255,51,0.1)">&#129302;</div>#129302;</div>
         <div class="flow-step-label human-only">AI reads first</div>
         <div class="flow-step-label dev-only">Agent Step 0</div>
         <div class="flow-step-sub human-only">Context before every task</div>
@@ -399,7 +448,7 @@
       </div>
       <div class="flow-arrow">&#8594;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:rgba(var(--accent-rgb),0.1)">&#128260;</div>
+        <div class="flow-icon" style="background:rgba(var(--accent-rgb),0.1)" role="img" aria-label="Refresh cycle"><div class="flow-icon" style="background:rgba(var(--accent-rgb),0.1)">&#128260;</div>#128260;</div>
         <div class="flow-step-label human-only">Stays current</div>
         <div class="flow-step-label dev-only">Ingest loop</div>
         <div class="flow-step-sub human-only">AI flags stale articles</div>
@@ -411,7 +460,7 @@
     <div class="flow-cards">
       <div class="flow-card">
         <div class="flow-card-num">01</div>
-        <div class="flow-card-icon" style="background:rgba(var(--accent-rgb),0.1)">💬</div>
+        <div class="flow-card-icon" style="background:rgba(var(--accent-rgb),0.1)" role="img" aria-label="Chat messages">💬</div>
         <div>
           <div class="flow-card-label human-only">Your history</div>
           <div class="flow-card-label dev-only">Source data</div>
@@ -421,7 +470,7 @@
       </div>
       <div class="flow-card">
         <div class="flow-card-num">02</div>
-        <div class="flow-card-icon" style="background:rgba(255,204,39,0.1)">&#9889;</div>
+        <div class="flow-card-icon" style="background:rgba(255,204,39,0.1)" role="img" aria-label="Lightning bolt"><div class="flow-card-icon" style="background:rgba(255,204,39,0.1)">&#9889;</div>#9889;</div>
         <div>
           <div class="flow-card-label human-only">One setup run</div>
           <div class="flow-card-label dev-only">Bootstrap prompt</div>
@@ -431,7 +480,7 @@
       </div>
       <div class="flow-card">
         <div class="flow-card-num">03</div>
-        <div class="flow-card-icon" style="background:rgba(138,56,245,0.1)">&#128194;</div>
+        <div class="flow-card-icon" style="background:rgba(138,56,245,0.1)" role="img" aria-label="Folder"><div class="flow-card-icon" style="background:rgba(138,56,245,0.1)">&#128194;</div>#128194;</div>
         <div>
           <div class="flow-card-label">Structured wiki</div>
           <div class="flow-card-sub human-only">Projects, people, decisions. All organised.</div>
@@ -440,7 +489,7 @@
       </div>
       <div class="flow-card">
         <div class="flow-card-num">04</div>
-        <div class="flow-card-icon" style="background:rgba(187,255,51,0.1)">&#129302;</div>
+        <div class="flow-card-icon" style="background:rgba(187,255,51,0.1)" role="img" aria-label="Robot"><div class="flow-card-icon" style="background:rgba(187,255,51,0.1)">&#129302;</div>#129302;</div>
         <div>
           <div class="flow-card-label human-only">AI reads it first</div>
           <div class="flow-card-label dev-only">Agent Step 0</div>
@@ -450,7 +499,7 @@
       </div>
       <div class="flow-card">
         <div class="flow-card-num">05</div>
-        <div class="flow-card-icon" style="background:rgba(var(--accent-rgb),0.1)">&#128260;</div>
+        <div class="flow-card-icon" style="background:rgba(var(--accent-rgb),0.1)" role="img" aria-label="Refresh cycle"><div class="flow-card-icon" style="background:rgba(var(--accent-rgb),0.1)">&#128260;</div>#128260;</div>
         <div>
           <div class="flow-card-label human-only">Stays current</div>
           <div class="flow-card-label dev-only">Ingest loop</div>
@@ -475,19 +524,19 @@
       <h2>Structured knowledge, not scattered threads.</h2>
       <div class="pillars-grid">
         <div class="pillar-card c-cyan">
-          <div class="pillar-icon c-cyan">&#9889;</div>
+          <div class="pillar-icon c-cyan" role="img" aria-label="Lightning bolt"><div class="pillar-icon c-cyan">&#9889;</div>#9889;</div>
           <div class="pillar-title">Your morning briefing, automated</div>
           <div class="pillar-body">One summary file captures everything your AI needs before it starts: what is active, what is blocked, who owns what, what was just decided. Your first message of the day goes straight to the work, not the catch-up.</div>
           <div class="stat-block"><div class="stat-num c-cyan">Day 1</div><div class="stat-label">your AI already knows your full team context</div></div>
         </div>
         <div class="pillar-card c-yellow">
-          <div class="pillar-icon c-yellow">&#128203;</div>
+          <div class="pillar-icon c-yellow" role="img" aria-label="Clipboard"><div class="pillar-icon c-yellow">&#128203;</div>#128203;</div>
           <div class="pillar-title">Nothing falls through the cracks</div>
           <div class="pillar-body">Every decision is captured: what was decided, by whom, and when. Open items stay visible until closed. Articles that go stale are flagged automatically, so your AI never confidently gives you yesterday's answer.</div>
           <div class="stat-block"><div class="stat-num c-yellow">Zero</div><div class="stat-label">decisions lost to a Slack thread scrolling past</div></div>
         </div>
         <div class="pillar-card c-purple">
-          <div class="pillar-icon c-purple">&#128276;</div>
+          <div class="pillar-icon c-purple" role="img" aria-label="Bell notification"><div class="pillar-icon c-purple">&#128276;</div>#128276;</div>
           <div class="pillar-title">Built from what your team already writes</div>
           <div class="pillar-body">Slack, meeting notes, Notion, Google Docs, email threads. The wiki is generated from your existing communications. Nothing to fill in manually, no new habit to form. Just point it at the right place.</div>
           <div class="stat-block"><div class="stat-num c-purple">9+</div><div class="stat-label">tools it can read your team's history from</div></div>
@@ -500,19 +549,19 @@
       <h2>Built for token efficiency and agent readability.</h2>
       <div class="pillars-grid">
         <div class="pillar-card c-cyan">
-          <div class="pillar-icon c-cyan">&#9889;</div>
+          <div class="pillar-icon c-cyan" role="img" aria-label="Lightning bolt"><div class="pillar-icon c-cyan">&#9889;</div>#9889;</div>
           <div class="pillar-title">state.md as a compressed snapshot layer</div>
           <div class="pillar-body">Without state.md, agents fetch index.md + all workstream and people files at Step 0. On a mature wiki with 10+ workstreams, that is 30-40K tokens before any live data is pulled. With state.md, Step 0 costs 800-1,500 tokens. Individual files are fetched only when a specific gap forces it.</div>
           <div class="stat-block"><div class="stat-num c-cyan">98%</div><div class="stat-label">token reduction at Step 0 vs naive full-index loading</div></div>
         </div>
         <div class="pillar-card c-yellow">
-          <div class="pillar-icon c-yellow">&#128203;</div>
+          <div class="pillar-icon c-yellow" role="img" aria-label="Clipboard"><div class="pillar-icon c-yellow">&#128203;</div>#128203;</div>
           <div class="pillar-title">YAML frontmatter + backlink schema</div>
           <div class="pillar-body">Every article carries <code style="background:var(--surface);padding:1px 4px;border-radius:3px;font-size:12px">summary</code>, <code style="background:var(--surface);padding:1px 4px;border-radius:3px;font-size:12px">status</code>, and <code style="background:var(--surface);padding:1px 4px;border-radius:3px;font-size:12px">last_updated</code> in YAML frontmatter. Agents orient by scanning frontmatter only. The staleness rule surfaces aging context without agents needing to diff timestamps manually.</div>
           <div class="stat-block"><div class="stat-num c-yellow">7 days</div><div class="stat-label">staleness threshold, then [STALE] is injected into index.md</div></div>
         </div>
         <div class="pillar-card c-purple">
-          <div class="pillar-icon c-purple">&#128276;</div>
+          <div class="pillar-icon c-purple" role="img" aria-label="Bell notification"><div class="pillar-icon c-purple">&#128276;</div>#128276;</div>
           <div class="pillar-title">Source-agnostic via MCP</div>
           <div class="pillar-body">The bootstrap prompt is parameterized around sources, not format. Slack MCP is the default but any chronological data source works: Apple Notes MCP, Google Drive MCP, Notion MCP, pasted transcripts. The key requirement is a chronological record of decisions.</div>
           <div class="stat-block"><div class="stat-num c-purple">9+</div><div class="stat-label">MCP-connected source types supported out of the box</div></div>
@@ -555,7 +604,7 @@
           <h4>Want to try it on your own team?</h4>
           <p>Tell Claude what you use (Slack, Notion, meeting notes) and what matters to your team. It will guide you through setup so your AI wakes up tomorrow already knowing your context.</p>
         </div>
-        <a class="btn-primary large" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank">Ask Claude to guide me</a>
+        <a class="btn-primary large" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank" rel="noopener noreferrer">Ask Claude to guide me</a>
       </div>
     </section>
   </div>
@@ -659,7 +708,7 @@
           <div class="step-title">Run the setup with Claude</div>
           <div class="step-body">Not sure how? Just click the button below. Claude will guide you through every step. By the end, your AI will have full context of your team and be ready to start tomorrow morning.</div>
           <div style="margin-top:20px">
-            <a class="btn-primary" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank">Set it up with Claude</a>
+            <a class="btn-primary" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank" rel="noopener noreferrer">Set it up with Claude</a>
           </div>
         </div>
       </div>
@@ -730,10 +779,10 @@
     <h2>Tomorrow morning,<br>your AI already knows.</h2>
     <p class="section-sub" style="margin:0 auto 40px;text-align:center">No more reconstructing context. No more missed decisions. Your team's history becomes a living briefing your AI reads before every single task.</p>
     <div class="hero-ctas">
-      <a class="btn-primary large" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank">Ask Claude to guide me</a>
-      <a class="btn-ghost large" href="https://github.com/bkocdur/agent-wiki-template" target="_blank">View on GitHub</a>
+      <a class="btn-primary large" href="https://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank" rel="noopener noreferrer">Ask Claude to guide me</a>
+      <a class="btn-ghost large" href="https://github.com/bkocdur/agent-wiki-template" target="_blank" rel="noopener noreferrer">View on GitHub</a>
     </div>
-    <p class="cta-meta">Built by <a href="https://github.com/bkocdur" target="_blank">Baris Kocdur</a> &middot; Open source &middot; MIT license &middot; <a href="agent-wiki.md" target="_blank">Plain text version</a></p>
+    <p class="cta-meta">Built by <a href="https://github.com/bkocdur" target="_blank" rel="noopener noreferrer">Baris Kocdur</a> &middot; Open source &middot; MIT license &middot; <a href="agent-wiki.md" target="_blank" rel="noopener noreferrer">Plain text version</a></p>
   </section>
 </div>
 
@@ -741,68 +790,13 @@
 <footer>
   <span>Agent Wiki Template</span>
   <div class="footer-links">
-    <a href="https://github.com/bkocdur/agent-wiki-template" target="_blank">GitHub</a>
-    <a href="https://github.com/bkocdur/agent-wiki-template/blob/main/README.md" target="_blank">Docs</a>
-    <a href="https://github.com/bkocdur/agent-wiki-template/blob/main/BOOTSTRAP.md" target="_blank">Bootstrap</a>
-    <a href="agent-wiki.md" target="_blank">Plain text</a>
+    <a href="https://github.com/bkocdur/agent-wiki-template" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://github.com/bkocdur/agent-wiki-template/blob/main/README.md" target="_blank" rel="noopener noreferrer">Docs</a>
+    <a href="https://github.com/bkocdur/agent-wiki-template/blob/main/BOOTSTRAP.md" target="_blank" rel="noopener noreferrer">Bootstrap</a>
+    <a href="agent-wiki.md" target="_blank" rel="noopener noreferrer">Plain text</a>
   </div>
 </footer>
 
-<div id="tweaks-root"></div>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accent": "cyan",
-  "spacing": 2
-}/*EDITMODE-END*/;
-
-function LandingTweaks() {
-  const [tweaks, set] = useTweaks(TWEAK_DEFAULTS);
-
-  React.useEffect(() => {
-    const accents = {
-      cyan:   { main: '#00c3ff', rgb: '0,195,255',   dim: 'rgba(0,195,255,0.12)' },
-      purple: { main: '#8a38f5', rgb: '138,56,245',  dim: 'rgba(138,56,245,0.12)' },
-      yellow: { main: '#ffcc27', rgb: '255,204,39',  dim: 'rgba(255,204,39,0.12)' },
-    };
-    const a = accents[tweaks.accent] || accents.cyan;
-    const r = document.documentElement;
-    r.style.setProperty('--accent', a.main);
-    r.style.setProperty('--accent-rgb', a.rgb);
-    r.style.setProperty('--accent-dim', a.dim);
-    const txtClr = tweaks.accent === 'purple' ? '#fff' : '#0c0c0c';
-    document.querySelectorAll('.btn-primary').forEach(el => { el.style.background = a.main; el.style.color = txtClr; el.style.boxShadow = `0 0 20px rgba(${a.rgb},0.3)`; });
-    document.querySelectorAll('.aud-btn.active').forEach(el => { el.style.background = a.main; el.style.color = txtClr; });
-    document.querySelectorAll('.nav-dot, .hero-badge-dot').forEach(el => { el.style.background = a.main; el.style.boxShadow = `0 0 8px ${a.main}`; });
-    document.querySelectorAll('.hero-badge').forEach(el => { el.style.background = a.dim; el.style.borderColor = `rgba(${a.rgb},0.25)`; el.style.color = a.main; });
-    document.querySelectorAll('.section-label').forEach(el => { el.style.color = a.main; });
-    document.querySelectorAll('.step-num').forEach(el => { el.style.color = a.main; });
-    document.querySelectorAll('.callout').forEach(el => { el.style.background = a.dim; el.style.borderColor = `rgba(${a.rgb},0.2)`; });
-    document.querySelectorAll('.callout-title').forEach(el => { el.style.color = a.main; });
-    document.querySelectorAll('.ft-dir').forEach(el => { el.style.color = a.main; });
-  }, [tweaks.accent]);
-
-  React.useEffect(() => {
-    const padMap = { 1: '50px 0', 2: '90px 0', 3: '130px 0' };
-    const pad = padMap[tweaks.spacing] || '90px 0';
-    document.querySelectorAll('section').forEach(el => { el.style.padding = pad; });
-  }, [tweaks.spacing]);
-
-  return (
-    <TweaksPanel>
-      <TweakSection label="Accent color">
-        <TweakRadio id="accent" value={tweaks.accent} onChange={v => set('accent', v)}
-          options={[{value:'cyan',label:'Cyan'},{value:'purple',label:'Purple'},{value:'yellow',label:'Yellow'}]}
-        />
-      </TweakSection>
-      <TweakSection label="Spacing">
-        <TweakSlider id="spacing" min={1} max={3} step={1} value={tweaks.spacing} onChange={v => set('spacing', v)} label="Section breathing room" />
-      </TweakSection>
-    </TweaksPanel>
-  );
-}
-ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<LandingTweaks />);
-</script>
 
 <script>
 function setAudience(mode) {

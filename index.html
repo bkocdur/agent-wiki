@@ -40,8 +40,8 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" /></noscript>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -208,7 +208,7 @@
     .ftd-r { background: #ff5f57; } .ftd-y { background: #ffbd2e; } .ftd-g { background: #28c840; }
     .ftd-name { font-size: 12px; color: var(--muted); margin-left: 8px; font-weight: 500; }
     .file-tree-body { padding: 20px 24px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 2.1; }
-    .ft-dir { color: var(--accent); } .ft-file { color: var(--text); } .ft-comment { color: var(--muted2); }
+    .ft-dir { color: var(--accent); } .ft-file { color: var(--text); } .ft-comment { color: #888; }
     .ft-highlight { color: var(--yellow); font-weight: 600; }
     .ft-indent { padding-left: 20px; }
     .file-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.3; }
@@ -264,7 +264,7 @@
       display: flex; align-items: center; justify-content: space-between; gap: 24px;
       flex-wrap: wrap;
     }
-    .ask-cta-block h4 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .ask-cta-block h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
     .ask-cta-block p { font-size: 14px; color: var(--muted); max-width: 420px; text-wrap: pretty; }
 
     /* CTA SECTION */
@@ -339,7 +339,7 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 14px; padding: 18px 20px;
     }
-    .flow-card-num { font-size: 11px; font-weight: 700; color: var(--muted2); letter-spacing: 0.05em; min-width: 22px; }
+    .flow-card-num { font-size: 11px; font-weight: 700; color: #888; letter-spacing: 0.05em; min-width: 22px; }
     .flow-card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .flow-card-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
     .flow-card-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
@@ -374,6 +374,7 @@
     </a>
   </div>
 </nav>
+<main>
 
 <!-- HERO -->
 <div class="wrap">
@@ -602,7 +603,7 @@
     <section style="padding:60px 0">
       <div class="ask-cta-block">
         <div>
-          <h4>Want to try it on your own team?</h4>
+          <h3>Want to try it on your own team?</h3>
           <p>Tell Claude what you use (Slack, Notion, meeting notes) and what matters to your team. It will guide you through setup so your AI wakes up tomorrow already knowing your context.</p>
         </div>
         <a class="btn-primary large" href="claude://claude.ai/new?q=Guide+me+to+build+this+template%3A+https%3A%2F%2Fgithub.com%2Fbkocdur%2Fagent-wiki-template" target="_blank" rel="noopener noreferrer">Ask Claude to guide me</a>
@@ -788,6 +789,7 @@
 </div>
 
 <!-- FOOTER -->
+</main>
 <footer>
   <span>Agent Wiki Template</span>
   <div class="footer-links">

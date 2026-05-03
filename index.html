@@ -43,6 +43,15 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" /></noscript>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MHMJWECB5W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MHMJWECB5W', { send_page_view: true });
+  </script>
+
   <!-- Structured data -->
   <script type="application/ld+json">
   {
@@ -802,28 +811,123 @@
 
 
 <script>
+// ── helpers ────────────────────────────────────────────────────────────────
+function track(event, params) {
+  if (typeof gtag === 'function') gtag('event', event, params);
+}
+function getAudience() {
+  return document.body.classList.contains('dev-mode') ? 'developer' : 'human';
+}
+
+// ── audience toggle ────────────────────────────────────────────────────────
 function setAudience(mode) {
   const isDev = mode === 'dev';
   document.body.classList.toggle('dev-mode', isDev);
   const humanBtn = document.getElementById('aud-human');
-  const devBtn = document.getElementById('aud-dev');
+  const devBtn   = document.getElementById('aud-dev');
   humanBtn.classList.toggle('active', !isDev);
   devBtn.classList.toggle('active', isDev);
-  // reset inline styles on inactive button so tweaks-applied styles don't linger
   const inactive = isDev ? humanBtn : devBtn;
   inactive.style.background = '';
   inactive.style.color = '';
   localStorage.setItem('aw-audience', mode);
+  track('audience_toggle', { audience_mode: isDev ? 'developer' : 'human' });
 }
-// restore preference
 (function(){ const s = localStorage.getItem('aw-audience'); if (s) setAudience(s); })();
 
+// ── copy code ──────────────────────────────────────────────────────────────
 function copyCode(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
     btn.textContent = 'Copied!'; btn.classList.add('copied');
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    const stepNum = btn.closest('.step-item')?.querySelector('.step-num')?.textContent?.trim() || 'unknown';
+    track('code_copy', { step: stepNum, audience_mode: getAudience() });
   });
 }
+
+// ── init all event listeners after DOM ready ───────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ── cta clicks ────────────────────────────────────────────────────────────
+  const ctaMap = [
+    { sel: 'nav .btn-primary',              label: 'ask_claude',  location: 'nav' },
+    { sel: 'nav .btn-ghost',                label: 'view_github', location: 'nav' },
+    { sel: '.hero .btn-primary',            label: 'ask_claude',  location: 'hero' },
+    { sel: '.hero .btn-ghost',              label: 'view_github', location: 'hero' },
+    { sel: '.ask-cta-block .btn-primary',   label: 'ask_claude',  location: 'inline_cta' },
+    { sel: '#quickstart .btn-primary',      label: 'ask_claude',  location: 'quickstart' },
+    { sel: '.cta-section .btn-primary',     label: 'ask_claude',  location: 'bottom_cta' },
+    { sel: '.cta-section .btn-ghost',       label: 'view_github', location: 'bottom_cta' },
+  ];
+  ctaMap.forEach(({ sel, label, location }) => {
+    document.querySelectorAll(sel).forEach(el => {
+      el.addEventListener('click', () =>
+        track('cta_click', { cta_label: label, cta_location: location, audience_mode: getAudience() })
+      );
+    });
+  });
+
+  // ── nav link clicks ────────────────────────────────────────────────────────
+  document.querySelectorAll('.nav-links a').forEach(el => {
+    el.addEventListener('click', () =>
+      track('nav_click', { destination: (el.getAttribute('href') || '').replace('#', '') })
+    );
+  });
+
+  // ── footer + cta-meta link clicks ─────────────────────────────────────────
+  document.querySelectorAll('.footer-links a, .cta-meta a').forEach(el => {
+    el.addEventListener('click', () =>
+      track('footer_link_click', { link_label: el.textContent.trim().toLowerCase() })
+    );
+  });
+
+  // ── scroll depth (25 / 50 / 75 / 100) ────────────────────────────────────
+  const firedDepths = new Set();
+  window.addEventListener('scroll', function () {
+    const pct = Math.round(((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100);
+    [25, 50, 75, 100].forEach(d => {
+      if (!firedDepths.has(d) && pct >= d) {
+        firedDepths.add(d);
+        track('scroll_depth', { depth_percent: d, audience_mode: getAudience() });
+      }
+    });
+  }, { passive: true });
+
+  // ── section visibility (fires once per section per pageload) ──────────────
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id ||
+                 entry.target.closest('[id]')?.id ||
+                 entry.target.querySelector('[id]')?.id ||
+                 'unknown';
+      track('section_view', { section_id: id, audience_mode: getAudience() });
+      sectionObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('#how-it-works, #structure, #quickstart').forEach(el =>
+    sectionObserver.observe(el)
+  );
+  // also observe the pillars and sources sections (no id — use parent wrap)
+  document.querySelectorAll('.pillars-grid, .sources-grid, .cta-section').forEach(el =>
+    sectionObserver.observe(el)
+  );
+
+  // ── time on page milestones ───────────────────────────────────────────────
+  [30, 60, 120, 300].forEach(s =>
+    setTimeout(() => track('time_on_page', { seconds: s, audience_mode: getAudience() }), s * 1000)
+  );
+
+  // ── exit intent (desktop) ─────────────────────────────────────────────────
+  let exitFired = false;
+  document.addEventListener('mouseleave', e => {
+    if (!exitFired && e.clientY <= 0) {
+      exitFired = true;
+      track('exit_intent', { audience_mode: getAudience() });
+    }
+  });
+
+});
 </script>
 </body>
 </html>
